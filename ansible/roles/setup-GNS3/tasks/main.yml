@@ -38,3 +38,39 @@
         "tile-type" = "file-tile";
     }'
   notify: "Restart the Dock"
+- name: Add green computer SVG icon
+  copy:
+    dest: "/home/demouser/GNS3/symbols/computer_green.svg"
+    src: "/data/computer_green.svg"
+    remote_src: True
+    owner: demouser
+    group: demouser
+    mode: 0644
+  become: yes
+- name: Add purple computer SVG icon
+  copy:
+    dest: "/home/demouser/GNS3/symbols/computer_purple.svg"
+    src: "/data/computer_purple.svg"
+    remote_src: True
+    owner: demouser
+    group: demouser
+    mode: 0644
+  become: yes
+- name: Add VMs to GNS3 GUI
+  copy:
+    dest: "/home/demouser/.config/GNS3/gns3_gui.conf"
+    src: "/data/gns3_gui.conf"
+    remote_src: True
+    owner: demouser
+    group: demouser
+    mode: 0644
+  become: yes
+- name: Configure the GNS3 server
+  copy:
+    dest: "/home/demouser/.config/GNS3/gns3_server.conf"
+    src: "/data/gns3_server.conf"
+    remote_src: True
+    owner: demouser
+    group: demouser
+    mode: 0644
+  become: yes
